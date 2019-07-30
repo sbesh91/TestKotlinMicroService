@@ -5,7 +5,10 @@ import spark.Spark.*
 
 fun main(args: Array<String>) {
     port(8080)
-    some()
-    other()
+
+    path("/api/v2") {
+        some()
+        other()
+    }
 }
 

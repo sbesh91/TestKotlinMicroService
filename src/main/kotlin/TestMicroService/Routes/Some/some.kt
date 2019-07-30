@@ -2,7 +2,7 @@ package TestMicroService.Routes.Some
 import spark.Spark.*;
 
 fun setup() {
-    path("/api/manifests") {
+    path("/manifests") {
         before("") { request, response ->
             println("catch the request before the processing is done")
         }

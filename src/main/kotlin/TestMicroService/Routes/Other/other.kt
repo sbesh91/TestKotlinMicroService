@@ -3,7 +3,7 @@ import spark.Spark.*;
 
 fun setup() {
 
-    path("/api/sessions") {
+    path("/sessions") {
         before("") { request, response ->
             println("catch the request before the processing is done")
         }
