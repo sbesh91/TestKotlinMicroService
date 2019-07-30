@@ -9,7 +9,7 @@ fun setup() {
         get("") { request, response ->
             println("generating a new manifest")
 
-            return@get "new manifest here"
+            "new manifest here"
         }
         after("") { request, response ->
             println("catch the request after the processing is done")

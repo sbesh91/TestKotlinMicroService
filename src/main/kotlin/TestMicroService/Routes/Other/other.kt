@@ -10,7 +10,9 @@ fun setup() {
         get("") { request, response ->
             println("generating a new session")
 
-            return@get "new session here"
+            val test = "new session here"
+
+            test
         }
         after("") { request, response ->
             println("catch the request after the processing is done")
