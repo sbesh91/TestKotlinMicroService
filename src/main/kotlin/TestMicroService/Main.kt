@@ -15,7 +15,7 @@ object App {
 
         logger.info("booting application.")
 
-        threadPool(8)
+        threadPool(8, 2, 30000)
         port(8080)
 
         path("/api/v2") {
