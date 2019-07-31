@@ -11,6 +11,7 @@ object App {
 
     private val logger = LogManager.getLogger(App::class.java)
     // todo make redis retry the connection
+    // todo enable jedis connection pooling
     private val redis: Jedis = {
         Jedis("http://localhost:6379")
     } ()
@@ -34,6 +35,9 @@ object App {
             otherRoutes()
             errorRoutes()
         }
+
+//        val r = khttp.get("http://google.com")
+//        logger.info("Raw HTTP response from google.com: ${r.text}")
 
         awaitInitialization()
         // todo fire the beacon to assert that booting has finished
