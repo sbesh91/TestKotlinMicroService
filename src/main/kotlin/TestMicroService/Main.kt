@@ -5,16 +5,26 @@ import TestMicroService.Routes.Some.someRoutes
 import spark.Spark.*
 import org.apache.log4j.LogManager
 import org.apache.log4j.PropertyConfigurator
+import redis.clients.jedis.*
 
 object App {
 
     private val logger = LogManager.getLogger(App::class.java)
+    // todo make redis retry the connection
+    private val redis: Jedis = {
+        Jedis("http://localhost:6379")
+    } ()
 
+    // todo setup jesque here
     @JvmStatic
     fun main(args: Array<String>) {
         PropertyConfigurator.configure("log4j.properties")
 
         logger.info("booting application.")
+
+        App.redis.set("hello", "Hi Dave!")
+
+        logger.info("Testing Redis Connection: ${App.redis.get("hello")}")
 
         threadPool(8, 2, 30000)
         port(8080)
