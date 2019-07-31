@@ -26,6 +26,7 @@ object App {
         }
 
         awaitInitialization()
+        // todo fire the beacon to assert that booting has finished
         logger.info("Application finished booting!")
     }
 }
