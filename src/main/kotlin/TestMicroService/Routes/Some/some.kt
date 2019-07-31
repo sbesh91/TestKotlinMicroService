@@ -7,7 +7,7 @@ private val logger = LogManager.getLogger(App::class.java)
 private val someDao = SomeDao();
 
 
-fun setup() {
+val someRoutes = {
     path("/manifests") {
         before("") { request, response ->
             logger.info("catch the request before the processing is done")

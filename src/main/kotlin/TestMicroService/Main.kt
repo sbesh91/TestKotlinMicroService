@@ -1,7 +1,7 @@
 package TestMicroService
-import TestMicroService.Routes.Some.setup as some
-import TestMicroService.Routes.Other.setup as other
-import TestMicroService.Routes.ErrorHandlers.setup as errorHandlers
+import TestMicroService.Routes.ErrorHandlers.errorRoutes
+import TestMicroService.Routes.Other.otherRoutes
+import TestMicroService.Routes.Some.someRoutes
 import spark.Spark.*
 import org.apache.log4j.LogManager
 import org.apache.log4j.PropertyConfigurator
@@ -20,9 +20,9 @@ object App {
         port(8080)
 
         path("/api/v2") {
-            some()
-            other()
-            errorHandlers()
+            someRoutes
+            otherRoutes
+            errorRoutes
         }
 
         awaitInitialization()

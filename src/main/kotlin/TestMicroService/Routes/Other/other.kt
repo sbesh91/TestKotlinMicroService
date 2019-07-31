@@ -6,7 +6,7 @@ import spark.Spark.*;
 private val logger = LogManager.getLogger(App::class.java)
 private val otherDao = OtherDao()
 
-fun setup() {
+val otherRoutes = {
     path("/sessions") {
         before("") { request, response ->
             logger.info("catch the request before the processing is done")

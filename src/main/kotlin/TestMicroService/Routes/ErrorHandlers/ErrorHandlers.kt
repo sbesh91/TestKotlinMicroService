@@ -4,7 +4,7 @@ import org.apache.log4j.LogManager
 import spark.Spark.*;
 private val logger = LogManager.getLogger(App::class.java)
 
-fun setup() {
+val errorRoutes = {
     exception(IllegalAccessException::class.java) { exception, request, response ->
         logger.error(exception.message)
         response.status(403)
