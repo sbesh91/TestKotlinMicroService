@@ -4,7 +4,6 @@ import org.apache.log4j.LogManager
 import TestMicroService.DAO.Other.OtherDao;
 import spark.Spark.*;
 private val logger = LogManager.getLogger(App::class.java)
-private val otherDao = OtherDao()
 
 val otherRoutes = {
     path("/sessions") {
@@ -19,11 +18,11 @@ val otherRoutes = {
             test
         }
         post("") { request, response ->
-            otherDao.create()
+            OtherDao.create()
             throw IllegalAccessException("403 not allowed from this ip: ${request.ip()}")
         }
         put("") {request, response ->
-            otherDao.update()
+            OtherDao.update()
             throw Exception("General Error")
         }
         after("") { request, response ->

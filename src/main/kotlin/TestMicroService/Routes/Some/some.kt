@@ -4,7 +4,6 @@ import TestMicroService.DAO.Some.SomeDao
 import org.apache.log4j.LogManager
 import spark.Spark.*;
 private val logger = LogManager.getLogger(App::class.java)
-private val someDao = SomeDao();
 
 
 val someRoutes = {
@@ -18,11 +17,11 @@ val someRoutes = {
             "new manifest here"
         }
         post("") { request, response ->
-            someDao.create()
+            SomeDao.create()
             "creating new manifest"
         }
         put("") { request, response ->
-            someDao.update()
+            SomeDao.update()
             "updating manifest"
         }
         after("") { request, response ->

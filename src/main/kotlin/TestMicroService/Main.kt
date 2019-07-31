@@ -20,9 +20,9 @@ object App {
         port(8080)
 
         path("/api/v2") {
-            someRoutes
-            otherRoutes
-            errorRoutes
+            someRoutes()
+            otherRoutes()
+            errorRoutes()
         }
 
         awaitInitialization()

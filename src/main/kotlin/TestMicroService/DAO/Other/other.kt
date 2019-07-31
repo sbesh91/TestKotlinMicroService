@@ -6,7 +6,7 @@ import org.apache.log4j.LogManager
 private val logger = LogManager.getLogger(App::class.java)
 
 
-class OtherDao {
+object OtherDao {
 
     fun create() {
         logger.info("creating in other dao")
